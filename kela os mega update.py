@@ -6,10 +6,10 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        # Полноэкранный режим
+        
         self.attributes('-fullscreen', True)
         self.configure(bg="#04a0fa")
-        self.title("Настраиваемые квадратные кнопки")
+        self.title("kela os")
 
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
@@ -19,13 +19,15 @@ class App(tk.Tk):
         y_start = 50      # Начальный отступ сверху
         gap = 20          # Промежуток между кнопками
 
-        # Список кнопок: текст + команда (по умолчанию — одна и та же функция)
+        # Список кнопок: текст + команда 
         buttons = [
             ("корзина", self.custom_func_1),
             ("этот компьютер", self.custom_func_2),
+            ("браузер", self.custom_func_3),
             ("проводник", self.custom_func_4),
             ("ос стор", self.custom_func_5),
             ("блокнот", self.custom_func_6),
+            ("галерея", self.custom_func_7),
             
         ]
 
@@ -43,7 +45,7 @@ class App(tk.Tk):
                 height=button_size
             )
 
-        # Кнопка «Выключить» (внизу слева)
+        # Кнопка Выключить
         self.shutdown_button = ttk.Button(
             self,
             text="Выключить",
@@ -56,7 +58,7 @@ class App(tk.Tk):
             height=30
         )
 
-    # --- Общие функции ---
+    #  Общие функции
 
     def custom_func_1(self):
         self._show_message("", "корзина пуста")
@@ -65,7 +67,10 @@ class App(tk.Tk):
         self._show_message("", "os: kela, комплектующие: в норме")
 
     def custom_func_3(self):
-        self._show_message("", "в тесте")
+        import webbrowser
+
+        url = "https://google.com"
+        webbrowser.open(url)
     
     def custom_func_4(self):
         self._show_message("файлы", "system:5 кб")
@@ -92,7 +97,7 @@ class App(tk.Tk):
 
         popup.protocol("WM_DELETE_WINDOW", popup.destroy)
 
-    # --- Примеры пользовательских функций (раскомментируйте и привяжите к кнопке) ---
+    
 
     def custom_func_1(self):
         self._show_message("", "корзина пуста")
@@ -101,17 +106,25 @@ class App(tk.Tk):
         self._show_message("", "os: kela, комплектующие: в норме")
 
     def custom_func_3(self):
-        self._show_message("", "в тесте")
-    
+        import webbrowser
+
+        url = "https:google.com"
+        webbrowser.open(url)
+
     def custom_func_4(self):
         self._show_message("файлы", "system:5 кб")
 
     def custom_func_5(self):
-        self._show_message("", "зачем тебе приложения?")
+        self._show_message("kela store", "приложений временно нет")
     
     def custom_func_6(self):
         os.system('notepad')
-    # --- Завершение работы ---
+    
+    def custom_func_7(self):
+        import webbrowser
+
+        url = "https://avatars.mds.yandex.net/i?id=4888b77867180de87ce8a65417c30d00_l-5910699-images-thumbs&n=13"
+        webbrowser.open(url)
 
     def quit_app(self):
         """Закрывает приложение."""
