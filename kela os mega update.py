@@ -28,7 +28,7 @@ class App(tk.Tk):
             ("ос стор", self.custom_func_5),
             ("блокнот", self.custom_func_6),
             ("галерея", self.custom_func_7),
-            
+            ("калькулятор", self.custom_func_8),
         ]
 
         # Создаём и размещаем кнопки
@@ -112,8 +112,7 @@ class App(tk.Tk):
         webbrowser.open(url)
 
     def custom_func_4(self):
-        self._show_message("файлы", "system:5 кб")
-
+        self._show_message("файлы", "sytem:15кб, ядро:2 кб, user:7кб")
     def custom_func_5(self):
         self._show_message("kela store", "приложений временно нет")
     
@@ -126,6 +125,9 @@ class App(tk.Tk):
         url = "https://avatars.mds.yandex.net/i?id=4888b77867180de87ce8a65417c30d00_l-5910699-images-thumbs&n=13"
         webbrowser.open(url)
 
+    def custom_func_8(self):
+        os.system('calc')
+    
     def quit_app(self):
         """Закрывает приложение."""
         self.destroy()
