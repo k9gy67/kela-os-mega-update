@@ -6,6 +6,7 @@ import datetime
 import shutil
 import sys
 import ctypes
+import webbrowser
 
 ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
@@ -66,6 +67,7 @@ def send_command(event=None):
             "time - показать время\n"
             "<имя файла в папке с ос> - открыть файл\n"
             "add file - добавит txt файл\n"
+            "<сайт> - открыть сайт "
         )
         output_area.insert(tk.END, help_text)
     elif cmd_lower.startswith('echo '):
@@ -102,6 +104,10 @@ def send_command(event=None):
         output_area.insert(tk.END, time)
     elif cmd_lower == 'add file':
         create_txt_file('k9gy os file.txt', 'edit this file')
+    elif cmd_lower.startswith(''):
+        message2 = command[5:]
+        url = f"{message2}"
+        webbrowser.open(url)
     else:
         output_area.insert(tk.END, "Команда не распознана.\n")
     output_area.see(tk.END)
